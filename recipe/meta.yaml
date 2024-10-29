@@ -19,6 +19,8 @@ build:
     - lib/
   missing_dso_whitelist:
     - '*/R.dll'                    # [win]
+    - '*/Rblas.dll'                    # [win]
+    - '*/Rlapack.dll'                    # [win]
 
 requirements:
   build:
@@ -36,7 +38,7 @@ requirements:
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
     - llvm-openmp  # [osx]
     - libcxx  # [osx]
-    - libgomp  # [linux]
+    - libgomp  # [not osx]
   host:
     - r-base
     - r-glmmadaptive
@@ -52,6 +54,7 @@ requirements:
     - libblas
     - liblapack
   run:
+    - libgomp  # [win]
     - r-base
     - r-glmmadaptive
     - r-rcpp

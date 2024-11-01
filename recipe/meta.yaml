@@ -1,6 +1,5 @@
 {% set version = "0.5-0" %}
 {% set posix = 'm2-' if win else '' %}
-{% set native = 'm2w64-' if win else '' %}
 
 package:
   name: r-jmbayes2
@@ -13,14 +12,15 @@ source:
   sha256: c1fc812a95952f14ce6733b75305470aae23b18bf335d37cba0195d02322e88e
 
 build:
-  merge_build_host: true  # [win]
-  number: 0
+  number: 1
   skip: true  # [r_base == "4.1"]
   rpaths:
     - lib/R/lib/
     - lib/
   missing_dso_whitelist:
     - '*/R.dll'                    # [win]
+    - '*/Rblas.dll'                    # [win]
+    - '*/Rlapack.dll'                    # [win]
 
 requirements:
   build:
@@ -37,8 +37,7 @@ requirements:
     - {{ posix }}zip               # [win]
     - cross-r-base {{ r_base }}    # [build_platform != target_platform]
     - llvm-openmp  # [osx]
-    - libcxx  # [osx]
-    - libgomp  # [linux]
+    - libgomp  # [not osx]
   host:
     - r-base
     - r-glmmadaptive
@@ -53,9 +52,11 @@ requirements:
     - r-survival
     - libblas
     - liblapack
+    - llvm-openmp  # [osx]
+    - libgomp  # [not osx]
   run:
+    - libgomp  # [win]
     - r-base
-    - {{ native }}gcc-libs         # [win]
     - r-glmmadaptive
     - r-rcpp
     - r-rcpparmadillo
@@ -66,7 +67,6 @@ requirements:
     - r-nlme
     - r-parallelly
     - r-survival
-    - libcxx   # [osx]
 
 test:
   commands:
@@ -77,7 +77,6 @@ about:
   home: https://drizopoulos.github.io/JMbayes2/, https://github.com/drizopoulos/JMbayes2
   license: GPL-3.0-or-later
   summary: Fit joint models for longitudinal and time-to-event data under the Bayesian approach. Multiple longitudinal outcomes of mixed type (continuous/categorical) and multiple event times (competing risks and multi-state processes) are accommodated. Rizopoulos (2012, ISBN:9781439872864).
-  license_family: GPL3
   license_file:
     - '{{ environ["PREFIX"] }}/lib/R/share/licenses/GPL-3'
 

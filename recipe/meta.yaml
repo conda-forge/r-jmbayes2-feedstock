@@ -42,6 +42,7 @@ requirements:
     - r-glmmadaptive
     - r-rcpp
     - r-rcpparmadillo
+    - r-abind
     - r-coda
     - r-ggplot2
     - r-gridextra
@@ -59,6 +60,7 @@ requirements:
     - r-glmmadaptive
     - r-rcpp
     - r-rcpparmadillo
+    - r-abind
     - r-coda
     - r-ggplot2
     - r-gridextra

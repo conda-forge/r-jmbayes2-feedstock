@@ -1,4 +1,4 @@
-{% set version = "0.5-2" %}
+{% set version = "0.5-7" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,7 +9,7 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/JMbayes2_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/JMbayes2/JMbayes2_{{ version }}.tar.gz
-  sha256: e53ba1fb21de677c0855ab967d8afac69517badd3f0521bc4748ef184803adad
+  sha256: 6ead099eb981c3d8436f093e67621f77201867ada7b2993df73223b246364d36
 
 build:
   number: 0
@@ -42,6 +42,7 @@ requirements:
     - r-glmmadaptive
     - r-rcpp
     - r-rcpparmadillo
+    - r-abind
     - r-coda
     - r-ggplot2
     - r-gridextra
@@ -59,6 +60,7 @@ requirements:
     - r-glmmadaptive
     - r-rcpp
     - r-rcpparmadillo
+    - r-abind
     - r-coda
     - r-ggplot2
     - r-gridextra

@@ -58,7 +58,6 @@ requirements:
     - libgomp  # [not osx]
   run:
     - libgomp  # [win]
-  host:
     - r-base
     - r-glmmadaptive
     - r-mass

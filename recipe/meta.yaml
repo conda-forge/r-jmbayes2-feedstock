@@ -40,6 +40,7 @@ requirements:
   host:
     - r-base
     - r-glmmadaptive
+    - r-mass
     - r-rcpp
     - r-rcpparmadillo
     - r-abind
@@ -49,6 +50,7 @@ requirements:
     - r-matrixstats
     - r-nlme
     - r-parallelly
+    - r-survc1
     - r-survival
     - libblas
     - liblapack
@@ -56,8 +58,10 @@ requirements:
     - libgomp  # [not osx]
   run:
     - libgomp  # [win]
+  host:
     - r-base
     - r-glmmadaptive
+    - r-mass
     - r-rcpp
     - r-rcpparmadillo
     - r-abind
@@ -67,6 +71,7 @@ requirements:
     - r-matrixstats
     - r-nlme
     - r-parallelly
+    - r-survc1
     - r-survival
 
 test:

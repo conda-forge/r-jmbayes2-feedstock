@@ -1,4 +1,4 @@
-{% set version = "0.5-7" %}
+{% set version = "0.6-0" %}
 {% set posix = 'm2-' if win else '' %}
 
 package:
@@ -9,10 +9,10 @@ source:
   url:
     - {{ cran_mirror }}/src/contrib/JMbayes2_{{ version }}.tar.gz
     - {{ cran_mirror }}/src/contrib/Archive/JMbayes2/JMbayes2_{{ version }}.tar.gz
-  sha256: 6ead099eb981c3d8436f093e67621f77201867ada7b2993df73223b246364d36
+  sha256: 35544aa0c804bd3c62e635c68921630efa26754ce030ca008bead93260430998
 
 build:
-  number: 1
+  number: 0
   rpaths:
     - lib/R/lib/
     - lib/
@@ -40,6 +40,7 @@ requirements:
   host:
     - r-base
     - r-glmmadaptive
+    - r-mass
     - r-rcpp
     - r-rcpparmadillo
     - r-abind
@@ -49,6 +50,7 @@ requirements:
     - r-matrixstats
     - r-nlme
     - r-parallelly
+    - r-survc1
     - r-survival
     - libblas
     - liblapack
@@ -58,6 +60,7 @@ requirements:
     - libgomp  # [win]
     - r-base
     - r-glmmadaptive
+    - r-mass
     - r-rcpp
     - r-rcpparmadillo
     - r-abind
@@ -67,6 +70,7 @@ requirements:
     - r-matrixstats
     - r-nlme
     - r-parallelly
+    - r-survc1
     - r-survival
 
 test:
